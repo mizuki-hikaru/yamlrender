@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "yamlrender"
+version = "1.0.12"
+authors = [
+    { name="Mizuki Hikaru", email="mizuki@hikaru.org" },
+]
+description = "yamlrender takes a YAML file and a Jinja2 template and renders a HTML or PDF file, populating the variables in the  Jinja2 template with data from your YAML file."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyyaml",
+    "jinja2",
+    "mymarkup",
+]
+
+[project.urls]
+Homepage = "https://github.com/mizuki-hikaru/yamlrender"
+Issues = "https://github.com/mizuki-hikaru/yamlrender/issues"
+
+[project.scripts]
+yamlrender = "yamlrender:cli"
