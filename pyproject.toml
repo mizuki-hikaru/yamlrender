@@ -28,3 +28,4 @@ Issues = "https://github.com/mizuki-hikaru/yamlrender/issues"
 
 [project.scripts]
 yamlrender = "yamlrender:cli"
+
