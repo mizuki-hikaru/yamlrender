@@ -21,7 +21,7 @@ def yamlrender(input_path, template_path, output_path):
 
     # Set up Jinja2 environment
     env = Environment(loader=FileSystemLoader(templates_dir), autoescape=select_autoescape(['html', 'xml']))
-    env.filters["markdown"] = lambda text: Markup(mymarkup_render(text or ""))
+    env.filters["mymarkup"] = lambda text: Markup(mymarkup_render(text or ""))
     template = env.get_template(template_path.name)
     rendered_html = template.render(**data, _context=data)
 
