@@ -4,6 +4,7 @@ import re
 import subprocess
 import tempfile
 from pathlib import Path
+from renderlet import render_file
 
 
 def yamlrender(input_path, template_path, output_path):
@@ -18,7 +19,7 @@ def yamlrender(input_path, template_path, output_path):
     templates_dir = template_path.parent
 
     # Set up Jinja2 environment
-    rendered_html = renderlet.render_file(template_path, **data)
+    rendered_html = render_file(template_path, **data)
 
     # Output
     if output_path.suffix == ".pdf":
