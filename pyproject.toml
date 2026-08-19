@@ -8,7 +8,7 @@ version = "1.0.13"
 authors = [
     { name="Mizuki Hikaru", email="mizuki@hikaru.org" },
 ]
-description = "yamlrender takes a YAML file and a Jinja2 template and renders a HTML or PDF file, populating the variables in the  Jinja2 template with data from your YAML file."
+description = "yamlrender takes a YAML file and a renderlet template and renders a HTML or PDF file, populating the variables in the renderlet template with data from your YAML file."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -18,8 +18,7 @@ classifiers = [
 ]
 dependencies = [
     "pyyaml",
-    "jinja2",
-    "mymarkup",
+    "renderlet",
 ]
 
 [project.urls]

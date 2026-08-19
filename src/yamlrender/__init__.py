@@ -4,9 +4,7 @@ import re
 import subprocess
 import tempfile
 from pathlib import Path
-from jinja2 import Environment, FileSystemLoader, select_autoescape
-from markupsafe import Markup
-from mymarkup import render as mymarkup_render
+
 
 def yamlrender(input_path, template_path, output_path):
     input_path = Path(input_path)
@@ -20,10 +18,7 @@ def yamlrender(input_path, template_path, output_path):
     templates_dir = template_path.parent
 
     # Set up Jinja2 environment
-    env = Environment(loader=FileSystemLoader(templates_dir), autoescape=select_autoescape(['html', 'xml']))
-    env.filters["mymarkup"] = lambda text: Markup(mymarkup_render(text or ""))
-    template = env.get_template(template_path.name)
-    rendered_html = template.render(**data, _context=data)
+    rendered_html = renderlet.render_file(template_path, **data)
 
     # Output
     if output_path.suffix == ".pdf":
