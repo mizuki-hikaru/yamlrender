@@ -1,5 +1,5 @@
 import sys
-import yaml
+import littleyaml
 import re
 import subprocess
 import tempfile
@@ -13,8 +13,7 @@ def yamlrender(input_path, template_path, output_path):
     output_path = Path(output_path)
 
     # Load YAML data
-    with input_path.open('r', encoding='utf-8') as f:
-        data = yaml.safe_load(f)
+    data = littleyaml.parse(input_path.read_text(encoding='utf-8'))
 
     templates_dir = template_path.parent
 
